@@ -46,42 +46,44 @@ namespace calculator
         void MainOporations()
         {
             string decision = "NO";
-            
+
             //if user types Yes it will start all over
             while (decision != "yes")
             {
-                Console.WriteLine("This is a Calculator, Add(+), Subtract(-), Multiply(*), Divide(/)");
+                Console.WriteLine("This is a Calculator\nAdd(+), Subtract(-), Multiply(*), Divide(/)");
                 decision = Console.ReadLine();
-
-                Console.WriteLine("Input First Argument");
-                string stringNum1 = Console.ReadLine();
-
-                Console.WriteLine("Input Next Argument");
-                string stringNum2 = Console.ReadLine();
-
-                float input1 = 0, input2 = 0;
-
-                //Checks to see if its a valied numerator if not returns false 
-                if (float.TryParse(stringNum1, out input1) || float.TryParse(stringNum2, out input2))
+                if (decision == "Add" || decision == "+" || decision == "Subtract" || decision == "-" || decision == "Multiply" || decision == "*" || decision == "Divide" || decision == "/")
                 {
-                    // Decides what kinds of oporation the user wants to use
-                    if (decision == "Add" || decision == "+")
-                        Console.WriteLine("Answer: " + Add(input1, input2));
+                    Console.WriteLine("Input First Argument");
+                    string stringNum1 = Console.ReadLine();
 
-                    else if (decision == "Subtract" || decision == "-")
-                        Console.WriteLine("Answer: " + Subtract(input1, input2));
+                    Console.WriteLine("Input Next Argument");
+                    string stringNum2 = Console.ReadLine();
 
-                    else if (decision == "Multiply" || decision == "*")
-                        Console.WriteLine("Answer: " + Multipul(input1, input2));
+                    float input1, input2;
 
-                    else if (decision == "Divide" || decision == "/")
-                        Console.WriteLine("Answer: " + Divide(input1, input2));
+                    //Checks to see if its a valied numerator if not returns false 
+                    if (float.TryParse(stringNum1, out input1) && float.TryParse(stringNum2, out input2))
+                    {
+                        // Decides what kinds of oporation the user wants to use
+                        if (decision == "Add" || decision == "+")
+                            Console.WriteLine("Answer: " + Add(input1, input2));
+
+                        else if (decision == "Subtract" || decision == "-")
+                            Console.WriteLine("Answer: " + Subtract(input1, input2));
+
+                        else if (decision == "Multiply" || decision == "*")
+                            Console.WriteLine("Answer: " + Multipul(input1, input2));
+
+                        else if (decision == "Divide" || decision == "/")
+                            Console.WriteLine("Answer: " + Divide(input1, input2));
+                    }
                     else
-                        Console.WriteLine("Encorrect Application");
+                        Console.WriteLine("Invaled Numerator");
                 }
                 else
-                    Console.WriteLine("Invaled Numerator");
-                
+                    Console.WriteLine("Encorrect Application");
+
                 Console.ReadKey();
                 Console.Clear();
 
