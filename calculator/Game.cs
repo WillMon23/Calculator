@@ -59,30 +59,33 @@ namespace calculator
                 Console.WriteLine("Input Next Argument");
                 string stringNum2 = Console.ReadLine();
 
-                float input1 = float.Parse(stringNum1);
+                float input1 = 0, input2 = 0;
 
-                float input2 = float.Parse(stringNum2);
+                //Checks to see if its a valied numerator if not returns false 
+                if (float.TryParse(stringNum1, out input1) || float.TryParse(stringNum2, out input2))
+                {
+                    // Decides what kinds of oporation the user wants to use
+                    if (decision == "Add" || decision == "1")
+                        Console.WriteLine("Answer: " + Add(input1, input2));
 
-                // Decides what kinds of oporation the user wants to use
-                if (decision == "Add" || decision == "1")
-                    Console.WriteLine("Answer: " + Add(input1, input2));
+                    else if (decision == "Subtract" || decision == "2")
+                        Console.WriteLine("Answer: " + Subtract(input1, input2));
 
-                else if (decision == "Subtract" || decision == "2")
-                    Console.WriteLine("Answer: " + Subtract(input1, input2));
+                    else if (decision == "Multiply" || decision == "3")
+                        Console.WriteLine("Answer: " + Multipul(input1, input2));
 
-                else if (decision == "Multiply" || decision == "3")
-                    Console.WriteLine("Answer: " + Multipul(input1, input2));
-
-                else if (decision == "Divide" || decision == "4")
-                    Console.WriteLine("Answer: " + Divide(input1, input2));
+                    else if (decision == "Divide" || decision == "4")
+                        Console.WriteLine("Answer: " + Divide(input1, input2));
+                    else
+                        Console.WriteLine("Encorrect Application");
+                }
                 else
-                    Console.WriteLine("Encorrect Application");
-
-
+                    Console.WriteLine("Invaled Numerator");
+                
                 Console.ReadKey();
                 Console.Clear();
 
-                Console.WriteLine("Task Complete? ");
+                Console.WriteLine("Task Complete? yes/no ");
                 decision = Console.ReadLine();
 
             }
