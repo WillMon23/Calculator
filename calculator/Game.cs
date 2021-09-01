@@ -50,7 +50,7 @@ namespace calculator
             //if user types Yes it will start all over
             while (decision != "yes")
             {
-                Console.WriteLine("This is a Calculator, Add(1), Subtract(2), Multiply(3), Divide(4)");
+                Console.WriteLine("This is a Calculator, Add(+), Subtract(-), Multiply(*), Divide(/)");
                 decision = Console.ReadLine();
 
                 Console.WriteLine("Input First Argument");
@@ -65,16 +65,16 @@ namespace calculator
                 if (float.TryParse(stringNum1, out input1) || float.TryParse(stringNum2, out input2))
                 {
                     // Decides what kinds of oporation the user wants to use
-                    if (decision == "Add" || decision == "1")
+                    if (decision == "Add" || decision == "+")
                         Console.WriteLine("Answer: " + Add(input1, input2));
 
-                    else if (decision == "Subtract" || decision == "2")
+                    else if (decision == "Subtract" || decision == "-")
                         Console.WriteLine("Answer: " + Subtract(input1, input2));
 
-                    else if (decision == "Multiply" || decision == "3")
+                    else if (decision == "Multiply" || decision == "*")
                         Console.WriteLine("Answer: " + Multipul(input1, input2));
 
-                    else if (decision == "Divide" || decision == "4")
+                    else if (decision == "Divide" || decision == "/")
                         Console.WriteLine("Answer: " + Divide(input1, input2));
                     else
                         Console.WriteLine("Encorrect Application");
